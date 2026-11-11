@@ -1,0 +1,73 @@
+/* Unapaulogetic v1.3. Shared brand values, aligned with the events site.
+
+   Every family here exists in the Adobe Fonts library, which is the constraint
+   that decides the whole system: Adobe Portfolio accepts no uploaded fonts, so
+   anything it cannot set is a face the portfolio can never match.
+
+   Display is Unapaulogetic Pixel, Paul's own pixel typeface (since 19 October
+   2026; it replaced Lo-Res from the Adobe web project and Handjet for Hebrew).
+   One family carries Latin and Hebrew in seven weights, served from this
+   domain like every other face, so nothing waits on use.typekit.net any more.
+   Source and licence: BRAND GUIDELINES/Unapaulogetic Pixel Font/. */
+@font-face{font-family:'Unapaulogetic Pixel';src:url('./assets/fonts/UnapaulogeticPixel-Light.woff2') format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:'Unapaulogetic Pixel';src:url('./assets/fonts/UnapaulogeticPixel-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Unapaulogetic Pixel';src:url('./assets/fonts/UnapaulogeticPixel-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Unapaulogetic Pixel';src:url('./assets/fonts/UnapaulogeticPixel-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+
+/* Body, both scripts, one family. Squared-off and geometric, so it sits beside
+   a pixel face without arguing with it. */
+@font-face{font-family:Rubik;src:url('./assets/fonts/rubik-latin.woff2') format('woff2');font-weight:300 700;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Rubik;src:url('./assets/fonts/rubik-hebrew.woff2') format('woff2');font-weight:300 700;font-display:swap;unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+
+@font-face{font-family:'IBM Plex Mono';src:url('./assets/fonts/IBMPlexMono-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+:root{
+  color-scheme:dark;
+  --room:#090909;--wall:#111111;--edge:#333333;--control-edge:#777771;
+  --dust:#aaa9a4;--paint:#e8e8e2;--beam:#f7f7ef;--signal:#c9ff36;--pulse:#fbea4b;
+  /* Lo-Res 15, from the Adobe web project. Not a file in assets/fonts/ like the
+     other three: Emigre is a commercial foundry, so the headings — and only the
+     headings — arrive from use.typekit.net.
+
+     It exists at 700 and nowhere else, which is why every rule that names this
+     token also names a weight. Asking for 400 does not fall back to 700; it
+     falls back to whatever the browser can fake, and a faked bitmap face looks
+     like a mistake rather than a choice.
+
+     Handjet stays behind it for Hebrew, which Lo-Res does not have. */
+  --font-display:'Unapaulogetic Pixel',monospace;
+  /* The same family at the cut that fits a small box. 9 Wide is 1.79x the
+     width of 15 at the same size, so anything set small and set in a narrow
+     column - the footer mark, the contact address - stays on 15. */
+  --font-display-tight:'Unapaulogetic Pixel',monospace;
+  /* The narrow cut, for the one line on About that has to be enormous and
+     still finish. It sets that sentence in 553px at 100px where lores-15 needs
+     1,313 and lores-9-wide 1,867 - which is 170px of cap height against 71 and
+     50 for a line of the same width. Added to the Adobe kit in September 2026
+     for this, and used nowhere else on purpose: at any normal size it is too
+     compressed to read comfortably. */
+  --font-display-narrow:'Unapaulogetic Pixel',monospace;
+  /* The statement, which is set finer than a heading and needs a cut that
+     survives being read rather than looked at. */
+  --font-statement:'Unapaulogetic Pixel',monospace;
+  /* Titles in capitals or as written. Only h1 and h2 in the display face read
+     this: the statement, the 404 message and the small display items are not
+     titles and are left alone. Hebrew has no case, so uppercase is simply
+     ignored there rather than doing something odd. */
+  --title-case: uppercase;
+  /* How far a display heading's colour channels pull apart when it is pointed
+     at - a projector with its channels a hair out of line. 0 turns it off
+     everywhere; past about 8 it stops being a projector and starts being a
+     fault. */
+  --heading-split: 4px;
+  /* How long the press ticker takes to travel its own length once. Longer is
+     slower. It pauses on hover and does not move at all under reduced motion,
+     so this is only about pace. */
+  --ticker-seconds: 44s;
+  --font-body:Rubik,Arial,sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;
+  --space-6:24px;--space-8:32px;--space-12:48px;--space-16:64px;
+  --space-24:96px;--space-32:128px;
+  --page-width:1320px;--gutter:clamp(20px,4vw,64px);--radius:0px;
+  --motion-fast:160ms;--motion-slow:260ms;--ease:cubic-bezier(.2,.65,.3,1);
+}

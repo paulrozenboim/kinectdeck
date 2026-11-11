@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KinectDeck | Unapaulogetic Lab</title>
+  <meta name="description" content="A Windows desktop app by Paul Rozenboim for capturing, scanning, playing back and performing with Kinect v2. Beta in preparation.">
+  <link rel="canonical" href="https://kinect.unapaulogetic.art/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Unapaulogetic">
+  <meta property="og:title" content="KinectDeck | Unapaulogetic Lab">
+  <meta property="og:description" content="Capture, scan and perform with Kinect v2. A Windows project by Paul Rozenboim.">
+  <meta property="og:url" content="https://kinect.unapaulogetic.art/">
+  <meta property="og:image" content="https://kinect.unapaulogetic.art/assets/stills/kinectdeck-share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A figure made of amber points leaves trails in KinectDeck's Perform view.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="./assets/brand/favicon.png">
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="wrap site-header">
+    <a class="wordmark" href="https://unapaulogetic.art/" aria-label="Unapaulogetic home">
+      <img src="./assets/brand/unapaulogetic-white.png" width="1061" height="192" alt="unapaulogetic">
+    </a>
+    <a href="https://unapaulogetic.art/lab/">Back to the Lab</a>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="project-title">
+      <div class="hero-copy">
+        <p class="meta">Windows desktop / Kinect v2</p>
+        <h1 id="project-title">KinectDeck</h1>
+        <p class="dek">Capture movement. Scan in 3D. Play it back as a live visual.</p>
+        <p class="byline">By Paul Rozenboim / Unapaulogetic</p>
+        <a class="status-link" href="#release">Beta in preparation <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hero-image">
+        <img src="./assets/stills/thermal-trails.webp" width="1104" height="704" fetchpriority="high" alt="A figure dissolves into a trail of amber points on black.">
+        <figcaption>Perform output with the Heat palette and motion trails.</figcaption>
+      </figure>
+    </section>
+
+    <div class="introduction">
+      <p>I built KinectDeck to get my old Kinect into TouchDesigner. Once I could bring in the live image and loop a take, I started cutting the room out of the depth image and seeing what I could do with the points that were left.</p>
+      <nav class="jump-links" aria-label="On this page">
+        <a href="#capture">Capture and play</a>
+        <a href="#scan">Scan and export</a>
+        <a href="#perform">Perform</a>
+        <a href="#ndi">TouchDesigner</a>
+        <a href="#setup">Hardware and setup</a>
+      </nav>
+    </div>
+
+    <section class="chapter" id="capture" aria-labelledby="capture-title">
+      <div class="chapter-head">
+        <h2 id="capture-title">Capture and play</h2>
+        <p>Choose the sensor streams you want and record a Kinect take (<code>.xef</code>). In Play, scrub the timeline, mark an in and out point, and loop that part while you work. Switch between depth, infrared, colour when captured, and a 3D point cloud. Use the Box controls to isolate the part of the room you want to see.</p>
+      </div>
+      <figure>
+        <img src="./assets/stills/depth-playback.webp" width="1600" height="840" loading="lazy" decoding="async" alt="KinectDeck's Play tab shows a cyan depth silhouette with the take list, loop timeline and depth controls visible.">
+        <figcaption><strong>Depth playback.</strong> The Ice palette maps distance to colour. The green markers on the timeline set the loop range.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="scan" aria-labelledby="scan-title">
+      <div class="chapter-head">
+        <h2 id="scan-title">Scan and export</h2>
+        <p>Save one frame as a PLY point cloud, or export a take as PLY frames, XYZ position EXRs or 16-bit depth and infrared PNGs. For a surface you can take into a 3D editor, Scan fuses successive depth frames from a live sensor or a saved take. Save the resulting geometry as OBJ, PLY or STL.</p>
+      </div>
+      <div class="pair">
+        <figure>
+          <img src="./assets/stills/point-cloud.webp" width="1600" height="840" loading="lazy" decoding="async" alt="A blue 3D point cloud framed by a lime crop box next to the Save this frame as PLY control.">
+          <figcaption><strong>Point cloud.</strong> One depth frame, positioned in 3D and ready to save as PLY.</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/stills/fused-scan.webp" width="1600" height="840" loading="lazy" decoding="async" alt="A grey surface scan of a seated figure with OBJ, PLY and STL export buttons to the right.">
+          <figcaption><strong>Fused scan.</strong> Several frames from a take build up this untextured surface in Person mode.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter" id="perform" aria-labelledby="perform-title">
+      <div class="chapter-head">
+        <h2 id="perform-title">Perform</h2>
+        <p>Work with the live sensor or a loop. Orbit the cloud, change its palette, leave motion trails or pull the points into a vortex. Save looks to eight scene slots for recall. Effects can respond to computer audio, and show controls can be driven by MIDI or OSC.</p>
+      </div>
+      <div class="effects">
+        <figure>
+          <img src="./assets/stills/ice-trails.webp" width="670" height="910" loading="lazy" decoding="async" alt="A cyan figure with pale blue streaks sweeping around the lower body.">
+          <figcaption><strong>Ice trails.</strong> Recent movement lingers around the figure.</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/stills/depth-ascii.webp" width="670" height="910" loading="lazy" decoding="async" alt="Rows of white text characters trace the outline of a person on black.">
+          <figcaption><strong>Depth ASCII.</strong> Text characters redraw the depth image.</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/stills/vortex.webp" width="670" height="910" loading="lazy" decoding="async" alt="Lavender points spiralling up in a loose funnel.">
+          <figcaption><strong>Vortex.</strong> Points spiral upward around the subject.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter" id="ndi" aria-labelledby="ndi-title">
+      <div class="chapter-head">
+        <h2 id="ndi-title">Into TouchDesigner</h2>
+        <p>With the optional NDI runtime installed, open <strong>Out</strong> in KinectDeck and enable the Perform feed. In TouchDesigner, add an <strong>NDI In TOP</strong> and choose the source named <strong>KinectDeck Perform</strong>. The receiver gets a video image of the effect, ready to transform or composite in your patch.</p>
+      </div>
+      <div class="pair signal-path">
+        <figure>
+          <img src="./assets/stills/perform-controls.webp" width="1600" height="840" loading="lazy" decoding="async" alt="KinectDeck's Perform tab shows a purple point cloud with scene slots and colour controls.">
+          <figcaption><strong>Sender.</strong> The portrait Perform frame in KinectDeck.</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/stills/touchdesigner-ndi.webp" width="1520" height="810" loading="lazy" decoding="async" alt="TouchDesigner displays the purple KinectDeck feed in an NDI node wired to a Transform TOP.">
+          <figcaption><strong>Receiver.</strong> The same feed in TouchDesigner, wired into a Transform TOP for reframing.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter setup" id="setup" aria-labelledby="setup-title">
+      <div class="setup-copy">
+        <h2 id="setup-title">Hardware and setup</h2>
+        <ol class="setup-list">
+          <li><strong>Connect a Kinect v2.</strong> Use the Kinect for Windows v2 or Xbox One Kinect with its powered PC adapter. Connect the adapter directly to a USB 3.0 port. Kinect v1 and Azure Kinect use different hardware and software.</li>
+          <li><strong>Set up a 64-bit Windows PC.</strong> Install the full <a href="https://www.microsoft.com/en-us/download/details.aspx?id=44561">Kinect for Windows SDK 2.0</a> before plugging in the sensor. KinectDeck uses .NET Framework 4.8. The beta targets Windows 11 x64, with clean-machine compatibility testing still underway.</li>
+          <li><strong>Add only the output tools you need.</strong> NDI is optional for video feeds. FFmpeg is optional for recording the Perform output to MP4 or a PNG sequence. Depth takes and mesh exports use KinectDeck's own capture and export workflow.</li>
+        </ol>
+      </div>
+      <figure>
+        <img src="./assets/stills/kinect-v2.webp" width="760" height="760" loading="lazy" decoding="async" alt="A black Xbox One Kinect v2 with its lit Xbox logo sits in front of a monitor showing a white point cloud.">
+        <figcaption>The Kinect v2 on my desk, with its point cloud on the monitor behind it.</figcaption>
+      </figure>
+    </section>
+
+    <section class="release" id="release" aria-labelledby="release-title">
+      <h2 id="release-title">Beta in preparation</h2>
+      <p>I’m preparing a small invited beta. The download will come after I’ve tested the Windows installer and checked capture, playback and output on the beta setup.</p>
+    </section>
+  </main>
+  <footer class="wrap site-footer">
+    <p>© 2026 Paul Rozenboim / Unapaulogetic</p>
+    <nav aria-label="Studio links">
+      <a href="https://unapaulogetic.art/lab/">Unapaulogetic Lab</a>
+      <a href="https://unapaulogetic.art/support/">Support my work</a>
+    </nav>
+  </footer>
+</body>
+</html>
