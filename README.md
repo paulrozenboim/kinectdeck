@@ -1,30 +1,47 @@
-# KinectDeck project website
+# KinectDeck
 
-Static project page for `https://kinect.unapaulogetic.art/`. Its public files are in `public/`. The Windows app lives separately and the site serves selected stills, studio branding and page files.
+**Official Portal & Beta Access:** [https://kinect.unapaulogetic.art/](https://kinect.unapaulogetic.art/)
 
-## Preview
+**KinectDeck** is a standalone Windows desktop application built for live visualists, VJs, and interactive media artists. It bridges Microsoft Kinect hardware directly into modern real-time visual pipelines—processing depth feeds, isolating human silhouettes, and routing low-latency video streams straight into TouchDesigner, Resolume, and NDI-compatible environments.
 
-Open `public/index.html` in a browser for a file preview, or run the following from this folder for an HTTP preview:
+---
+
+## Key Capabilities
+
+* **Real-Time Depth & Silhouette Isolation:** Clean depth-map thresholding, person scanning, and background stripping without complex node setups.
+* **Native NDI Output:** Stream processed depth, IR, and segmented player feeds directly over NDI into TouchDesigner (`NDI In TOP`), Resolume Arena, or MadMapper.
+* **Plug-and-Play Hardware Control:** Dedicated desktop HUD for sensor tilt, depth clipping planes, smoothing, and live capture libraries.
+* **Built for the Booth:** Lightweight, zero-bloat Windows performance designed to run reliably alongside heavy GPU rendering workflows.
+
+---
+
+## System Requirements
+
+* **OS:** Windows 10 / Windows 11 (64-bit)
+* **Hardware:** Microsoft Kinect Sensor (with USB 3.0 PC Adapter)
+* **Pipeline Support:** NDI-compatible receiver (TouchDesigner, Resolume, OBS, etc.)
+
+---
+
+## Releases & Beta Access
+
+Visit **[kinect.unapaulogetic.art](https://kinect.unapaulogetic.art/)** for visual breakdowns, signal-path previews, and beta access updates. Public builds and release notes are published under the **Releases** tab of this repository.
+
+---
+
+## Web Portal Development
+
+This repository also serves the static web showcase deployed at `kinect.unapaulogetic.art` via Cloudflare Workers (`public/`).
 
 ```powershell
+# Local HTTP preview ([http://127.0.0.1:4322/](http://127.0.0.1:4322/))
 py -3.12 -m http.server 4322 --bind 127.0.0.1 --directory public
-```
 
-Open [the local project page](http://127.0.0.1:4322/). The Lab and support links point to their production addresses.
-
-## Cloudflare
-
-This is a static-assets Worker called `kinectdeck`, with no build step. The custom domain binding in `wrangler.jsonc` points at `kinect.unapaulogetic.art`. Cloudflare manages the DNS record and certificate for the custom domain. Before the first deploy, check the zone for a pre-existing record at that exact hostname. [Cloudflare custom domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/)
-
-With Wrangler logged into the studio Cloudflare account, run these from this folder:
-
-```powershell
-npx wrangler deploy --dry-run
+# Deploy to Cloudflare
 npx wrangler deploy
 ```
 
-Once the Worker serves HTTPS at the custom domain, publish the reviewed homepage changes through its existing `unapaulogetic-website` deployment. Check the production Lab card and the link back to `/support/`. If managing future deployments through Cloudflare's GitHub integration, connect a dedicated website repository to the `kinectdeck` Worker and use `npx wrangler deploy` as its deploy command.
+---
 
-## Images
-
-Stills are from the studio's KinectDeck reel sources and the 9 November 2026 explainer pickups. The hardware frame is cropped to the Kinect and monitor. The desktop app screenshots omit the local capture-library path. The TouchDesigner crop shows the signal path from the NDI receiver into a Transform TOP. Keep only approved derivatives in `public/assets/stills/`.
+**Created by Paul Rozenboim ([unapaulogetic](https://unapaulogetic.art/))**  
+[unapaulogetic.art](https://unapaulogetic.art/) · [paulrozenboim.com](https://www.paulrozenboim.com/)
